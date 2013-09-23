@@ -74,6 +74,7 @@ sub CreateHTML {
 <html xmlns=\"http://www.w3.org/1999/xhtml\">
 <head>
     <title>$html{'title'}</title>
+    <link rel=\"stylesheet\" href=\"css/log-style.css\" type=\"text/css\" />
 </head>
 <body>";
 
@@ -92,11 +93,11 @@ sub CreateHTML {
             $items[$i][3] = "<a href=\"$weblink/$items[$i][3]\">$items[$i][3]</a>";
         }
 
-        print FILE "<h3>$items[$i][5]</h3>
-<p>$items[$i][3] &lt;$items[$i][4]&gt; committed $items[$i][1]</p>
-<p>$items[$i][2]</p>
-<p>$items[$i][5]</p>
-<p>$items[$i][6]</p>";
+        print FILE "<div class=\"log-entry\"><h3>$items[$i][5]</h3>
+<p class=\"meta\">$items[$i][3] &lt;$items[$i][4]&gt; committed $items[$i][1]</p>
+<p class=\"time\">$items[$i][2]</p>
+<p class=\"subject\">$items[$i][5]</p>
+<p class=\"description\">$items[$i][6]</p></div>";
     }
 
     print FILE "</body>
